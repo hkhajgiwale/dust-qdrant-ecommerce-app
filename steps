@@ -1,0 +1,27 @@
+Quick run plan (recommended order)
+
+Ensure collection exists (non-destructive):
+
+python3.12 -c "from collection_manager import ensure_products_collection; ensure_products_collection()"
+
+
+Add payload indexes (non-destructive):
+
+python3.12 -c "from collection_manager import add_payload_indexes; add_payload_indexes()"
+
+
+(Optional) Tune HNSW:
+
+python3.12 -c "from collection_manager import set_hnsw_params; set_hnsw_params(m=32, ef_construct=512)"
+
+
+Try in-place quantization (best-effort):
+
+python3.12 -c "from collection_manager import enable_quantization_inplace; enable_quantization_inplace()"
+
+
+If you want quantization and in-place failed, recreate (destructive — you must re-ingest afterwards):
+
+python3.12 -c "from collection_manager import recreate_collection_with_quantization; recreate_collection_with_quantization(force_delete=True)"
+# then re-run ingestion
+python3.12 main.py --collection_url <your_store_url> --limit 200
