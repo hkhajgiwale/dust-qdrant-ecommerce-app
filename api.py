@@ -72,3 +72,12 @@ async def semantic_search(collection_name: str, search_query: SearchQuery):
             out.append(ProductSearchResult(id=str(item), score=0.0, payload=None))
 
     return out
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+    port = int(os.environ.get("PORT", 9000))
+    host = "0.0.0.0"
+    print(f"Starting uvicorn with host={host} port={port} (ENV PORT: {os.environ.get('PORT')})", flush=True)
+    # Use uvicorn.run to start from python — this will show logs in Render console
+    uvicorn.run("api:app", host=host, port=port, log_level="info")
