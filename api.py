@@ -77,6 +77,8 @@ if __name__ == "__main__":
     import os
     import uvicorn
     port = int(os.environ.get("PORT", 9000))
+    print(port)
+    print("Inside main function")
     host = "0.0.0.0"
     print(f"Starting uvicorn with host={host} port={port} (ENV PORT: {os.environ.get('PORT')})", flush=True)
     # Use uvicorn.run to start from python — this will show logs in Render console
