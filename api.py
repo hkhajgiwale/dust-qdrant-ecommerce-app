@@ -76,7 +76,7 @@ async def semantic_search(collection_name: str, search_query: SearchQuery):
 if __name__ == "__main__":
     import os
     import uvicorn
-    port = int(os.environ.get("PORT", 9000))
+    port = int(os.environ.get("PORT", 10000))
     print(port)
     print("Inside main function")
     host = "0.0.0.0"
